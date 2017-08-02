@@ -1,0 +1,112 @@
+@import 'variables/color';
+
+.login-signup-form {
+  background: $bg-white;
+  border: 1px solid $login-signup-form-border;
+  margin: 20px 0;
+  padding: 22px 0;
+  text-align: center;
+
+  input[type='email'],
+  input[type='text'],
+  input[type='password'],
+  input[type='submit'] {
+    -webkit-appearance: none;
+    border: 1px solid $btn-login-facebook-border;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: $btn-login-facebook-color;
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding: 9px 8px 7px;
+    width: 80%;
+
+    &:focus {
+      border: 1px solid $input-login-outline;
+      outline: 0;
+    }
+  }
+
+  .btn-login-with-facebook {
+    -webkit-appearance: none;
+    border: 1px solid $btn-login-facebook-border;
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: $btn-login-facebook-color;
+    font-size: 14px;
+    margin-bottom: 6px;
+    padding: 9px 8px 7px;
+    width: 80%;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  input[type='submit'],
+  .btn-login-with-facebook {
+    background: $btn-primary-bg;
+    color: $bg-white;
+    font-weight: bold;
+  }
+
+  input[type='checkbox'],
+  label[for='user_remember_me'] {
+    display: none;
+  }
+
+  .email-username-login {
+    position: relative;
+  }
+
+  .forgot-password {
+    position: absolute;
+    right: 49px;
+    top: 10px;
+  }
+
+  .slogin-signup {
+    color: $slogin-signup-color;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 40px 10px;
+    text-align: center;
+  }
+
+  .sign-up-or {
+    padding: 20px 37px;
+
+    div {
+      color: $slogin-signup-color;
+      float: left;
+      font-weight: bold;
+      margin: 0 15px;
+    }
+
+    hr {
+      float: left;
+      margin-top: 7px;
+      width: 41%;
+    }
+  }
+}
+
+.notify-message-devise {
+  border: 1px solid $notify-message-color;
+  color: $notify-message-color;
+  margin-left: 36px;
+  padding: 10px;
+  text-align: left;
+  width: 80%;
+}
+
+.new-feeds {
+  .post {
+    background: $bg-white;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+}

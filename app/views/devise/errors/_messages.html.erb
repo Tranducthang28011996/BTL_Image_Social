@@ -1,0 +1,14 @@
+<% if object.errors.any? %>
+  <div id="error_explanation" class="notify-message-devise">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <p><strong>This form contains <%= pluralize(object.errors.count, 'error') %>.</strong></p>
+    <ul>
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<% flash.each do |key, value| %>
+  <div class="flash <%= key %>"><%= value %></div>
+<% end %>

@@ -1,0 +1,17 @@
+<div class="post">
+  <div class="post-header">
+    <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
+    <span><%= current_user.username %></span>
+  </div>
+  <div class="post-content text-center">
+    <%#= icon "plus-circle" %>
+    <%= form_for @new_photos, multipart: true do |f| %>
+      <%= f.file_field :image %>
+      <%= f.fields_for :comments do |comment|  %>
+        <%= comment.text_area :content %>
+        <%= comment.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+      <%= f.submit "upload" %>
+    <% end %>
+  </div>
+</div>
