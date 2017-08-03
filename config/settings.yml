@@ -1,0 +1,7 @@
+model:
+  user:
+    name:
+      maximum: 50
+      minimum: 6
+controller:
+  devise: ["sessions", "confirmations", "passwords", "registrations", "unlocks"]

@@ -1,0 +1,180 @@
+@import 'variables/color';
+
+body {
+  background: $bg-page;
+}
+
+.header-page {
+  background: $bg-white !important;
+  height: 88px;
+  padding: 12px 250px;
+
+  .logo {
+    color: $input-login-outline !important;
+    font-size: 30px;
+
+    span {
+      border-left: 1px solid $color-border-header;
+      font-family: 'Lobster', cursive;
+      font-size: 25px;
+      padding-left: 10px;
+    }
+  }
+
+  .search-form {
+    margin-top: 18px;
+    position: relative;
+    text-align: center;
+
+    input {
+      border: solid 1px $color-border-input;
+      border-radius: 3px;
+      color: $color-text-input;
+      font-size: 14px;
+      outline: none;
+      padding: 4px;
+      text-align: center;
+      width: 60%;
+    }
+
+    span {
+      color: $color-span-search-form;
+      position: absolute;
+      right: 93px;
+      top: 6px;
+    }
+  }
+
+  .navigator-user {
+    padding: 22px 0;
+
+    a {
+      font-size: 17px;
+      font-weight: bold;
+      margin-right: 10px;
+      padding-right: 10px;
+
+      &:nth-child(1) {
+        border-right: 1px solid $input-login-outline;
+      }
+    }
+
+    .notify-compass,
+    .notify-like,
+    .notify-user {
+      background-color: $bg-white;
+      background-image: url('icon.png');
+      border: 0;
+      margin-right: 20px;
+    }
+
+    .notify-compass {
+      background-position: 192px 109px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .notify-like {
+      background-position: 375px 49px;
+      height: 24px;
+      width: 24px;
+    }
+
+    .notify-user {
+      background-position: 140px -290px;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
+.post {
+  margin-bottom: 30px;
+}
+.post-header {
+  padding: 10px;
+
+  .post-avatar {
+    border-radius: 40px;
+    width: 40px;
+  }
+
+  span {
+    font-weight: 900;
+    padding-left: 10px;
+  }
+}
+
+.post-content {
+  .post-main-img {
+    width: 100%;
+  }
+}
+
+.post-control {
+  .like-comment {
+    padding: 10px;
+    position: relative;
+
+    .post-comments {
+      padding-top: 5px;
+    }
+
+    textarea {
+      resize: none;
+      height: 30px;
+      border: 0;
+      outline: 0;
+    }
+
+    .btn-send {
+      background: $bg-white;
+      border: 0;
+      bottom: 17px;
+      position: absolute;
+      right: 18px;
+    }
+  }
+
+  .comment-content {
+    span {
+      padding-left: 5px;
+    }
+
+    a {
+      color: #333;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .load-post {
+    button {
+      border: 0;
+      color: #999;
+      background-color: $bg-white;
+    }
+  }
+
+  .button-like-comment {
+    background-color: $bg-white;
+    background-image: url('icon.png');
+    border: 0;
+    height: 25px;
+    width: 25px;
+  }
+
+  .liked {
+    background-position: 0 -349px;
+  }
+
+  .not-like {
+    background-position: -26px -349px;
+  }
+
+  .comment {
+    background-position: -312px -289px;
+  }
+}

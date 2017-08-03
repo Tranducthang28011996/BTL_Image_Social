@@ -1,0 +1,29 @@
+<header>
+  <nav class="navbar navbar-default header-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="navbar-header">
+            <a class="navbar-brand logo" href="#"><%= icon "camera-retro" %> <span>imageFun</span></a>
+          </div>
+        </div>
+        <div class="col-md-4 search-form">
+          <input type="text" name="" placeholder="search">
+          <span><%= icon "search" %></span>
+        </div>
+        <div class="col-md-4 col-md-offset-1 navigator-user">
+          <div class="nav navbar-nav">
+            <% unless user_signed_in? %>
+              <%= link_to "Sign up", new_user_registration_path %>
+              <%= link_to "Login", new_user_session_path %>
+            <% else %>
+              <button class="notify-compass"></button>
+              <button class="notify-like"></button>
+              <button class="notify-user"></button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

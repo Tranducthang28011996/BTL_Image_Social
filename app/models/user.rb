@@ -6,16 +6,28 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :photos
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :commented_photos, through: :comments, source: :photo
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :liked_photos, through: :likes, source: :photo
 
   has_many :active_notifications, class_name: Notification.name,
-    foreign_key: :sender_id
+    foreign_key: :sender_id, dependent: :destroy
   has_many :passive_notifications, class_name: Notification.name,
-    foreign_key: :receiver_id
+    foreign_key: :receiver_id, dependent: :destroy
+
+  # ATTRIBUTE_PARAMS = [
+  #   :username,
+  #   :email,
+  #   :address,
+  #   :role,
+  #   :status,
+  #   :avatar,
+  #   :gender,
+  #   :birthday,
+  #   comments_attributes: [:content]
+  # ]
 
   class << self
     def find_for_database_authentication warden_conditions

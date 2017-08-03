@@ -1,0 +1,39 @@
+<div class="post">
+  <div class="post-header">
+    <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
+    <span>tuyenvuduc</span>
+  </div>
+  <div class="post-content">
+    <%= image_tag photo.image, class: "post-main-img" %>
+  </div>
+  <div class="post-control">
+    <div class="like-comment">
+      <%= button_tag "", class: "button-like-comment liked" %>
+      <%#= button_tag "", class: "button-like not-like" %>
+
+      <%= button_tag "", class: "button-like-comment comment" %>
+      <div class="count-like">
+        <strong>100 likes</strong>
+      </div>
+
+      <div class="post-comments">
+        <% photo.comments.each do |comment| %>
+          <div class="comment-content">
+            <a href="#"><strong><%= comment.user.username %></strong></a>
+            <span><%= comment.content %></span>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="load-post">
+        <%= button_tag "view more 10 comments" %>
+      </div>
+      <hr>
+      <%= form_for [photo, photo.comments.build] do |f| %>
+        <%= f.text_area :content, rows: 2, cols: 60, class:"form-add-comment",
+          placeholder: "Add a comment..." %>
+        <%= f.submit "send", class: "btn-send" %>
+      <% end %>
+    </div>
+  </div>
+</div>

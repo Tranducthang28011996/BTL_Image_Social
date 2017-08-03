@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BTLImageSocial</title>
+    <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag "favicon.ico" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= render "layouts/head" %>
   </head>
 
   <body>
-    <%= yield %>
+    <% unless Settings.controller.devise.include? controller.controller_name %>
+      <%= render "layouts/header" %>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <% unless Settings.controller.devise.include? controller.controller_name %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </body>
 </html>
