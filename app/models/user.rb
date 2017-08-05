@@ -17,17 +17,11 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: Notification.name,
     foreign_key: :receiver_id, dependent: :destroy
 
-  # ATTRIBUTE_PARAMS = [
-  #   :username,
-  #   :email,
-  #   :address,
-  #   :role,
-  #   :status,
-  #   :avatar,
-  #   :gender,
-  #   :birthday,
-  #   comments_attributes: [:content]
-  # ]
+  has_many :active_follows, class_name: Follow.name, foreign_key: :follower_id
+  has_many :passive_follows, class_name: Follow.name, foreign_key: :followed_id
+
+  has_many :followings, through: :active_follows, source: :followed
+  has_many :followers, through: :passive_follows
 
   class << self
     def find_for_database_authentication warden_conditions
@@ -37,4 +31,25 @@ class User < ApplicationRecord
     end
   end
 
+  def follow user
+    unless following? user && user
+      followings << user
+    else
+      false
+    end
+  end
+
+  def unfollow user
+    if following? user
+      followings.delete user
+    end
+  end
+
+  def following? user
+    followings.include? user
+  end
+
+  def feeds
+    Photo.order(created_at: :desc).where "user_id IN (?) OR user_id = (?)", following_ids, id
+  end
 end

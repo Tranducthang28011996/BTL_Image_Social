@@ -10,4 +10,9 @@ class Photo < ApplicationRecord
   accepts_nested_attributes_for :comments
 
   mount_uploader :image, PhotosUploader
+
+  def load from, num
+    comments.order(created_at: :desc).limit(num).offset(from).reverse
+  end
+
 end
