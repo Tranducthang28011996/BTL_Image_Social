@@ -1,7 +1,7 @@
-<div class="post">
+<div class="post" id="photo-id-<%= photo.id %>">
   <div class="post-header">
     <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
-    <span>tuyenvuduc</span>
+    <span><%= link_to photo.user.username, user_path(photo.user)  %></span>
   </div>
   <div class="post-content">
     <%= image_tag photo.image, class: "post-main-img" %>
@@ -17,12 +17,7 @@
       </div>
 
       <div class="post-comments">
-        <% photo.comments.each do |comment| %>
-          <div class="comment-content">
-            <a href="#"><strong><%= comment.user.username %></strong></a>
-            <span><%= comment.content %></span>
-          </div>
-        <% end %>
+        <%= render photo.comments %>
       </div>
 
       <div class="load-post">
@@ -32,7 +27,7 @@
       <%= form_for [photo, photo.comments.build] do |f| %>
         <%= f.text_area :content, rows: 2, cols: 60, class:"form-add-comment",
           placeholder: "Add a comment..." %>
-        <%= f.submit "send", class: "btn-send" %>
+        <%= f.submit "send", class: "btn-send btn-send-comment" %>
       <% end %>
     </div>
   </div>

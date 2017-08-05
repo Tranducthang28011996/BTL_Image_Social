@@ -4,8 +4,7 @@ class PhotosController < ApplicationController
   def index
     @new_photos = current_user.photos.build
     @new_comment = @new_photos.comments.build
-
-    @photos = current_user.photos.includes(:user, :comments)
+    @photos = load_feeds
   end
 
   def new
@@ -20,6 +19,10 @@ class PhotosController < ApplicationController
   private
 
   def photo_params
-    params.require(:photo).permit(:image, comments_attributes: [:content, :user_id])
+    params.require(:photo).permit :image, comments_attributes: [:content, :user_id]
+  end
+
+  def load_feeds
+    current_user.feeds.includes :user, comments: [:user]
   end
 end

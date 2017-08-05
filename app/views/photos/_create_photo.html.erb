@@ -1,7 +1,7 @@
 <div class="post">
   <div class="post-header">
     <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
-    <span><%= current_user.username %></span>
+    <span><%= link_to current_user.username, user_path(current_user) %></span>
   </div>
   <div class="post-content text-center">
     <%#= icon "plus-circle" %>

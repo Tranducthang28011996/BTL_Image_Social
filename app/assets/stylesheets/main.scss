@@ -7,7 +7,7 @@ body {
 .header-page {
   background: $bg-white !important;
   height: 88px;
-  padding: 12px 250px;
+  padding: 12px 0;
 
   .logo {
     color: $input-login-outline !important;
@@ -176,5 +176,24 @@ body {
 
   .comment {
     background-position: -312px -289px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .navbar-header {
+    margin-left: 100px;
+  }
+
+  .navigator-user .nav {
+    margin-left: 160px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-header {
+    margin-left: 32px;
+  }
+
+  .navigator-user .nav {
+    margin-left: 108px;
   }
 }
