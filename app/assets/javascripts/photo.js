@@ -19,12 +19,9 @@ $(document).ready(function(){
         $(textarea).val().replace("\n", "");
       }
     })
-  });
-
-  $('body').on('keypress', '.form-add-comment', function(event){
-    var keyCode = (event.keyCode ? event.keyCode : event.which);
-    if (keyCode == 13) {
-      $('.btn-send-comment').trigger('click');
-    }
-  });
+});
+$(document).ready(function(){
+    $("#image_upload").click(function(){
+        $(this).hide();
+    });
 });
