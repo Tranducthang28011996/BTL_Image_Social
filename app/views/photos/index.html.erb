@@ -1,4 +1,4 @@
-<div class="container new-feeds">
+<div class="new-feeds">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= render "create_photo" %>
@@ -7,3 +7,5 @@
   </div>
 </div>
 <%= link_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+<%= link_to icon("user"), user_path(current_user), class: "btn btn-primary" %>
+

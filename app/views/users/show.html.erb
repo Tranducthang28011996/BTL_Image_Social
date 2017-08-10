@@ -1,4 +1,46 @@
-<%= @user.username %>
-<div class="follow">
-  <%= render partial: "follow_form", locals: {user: @user} %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row user-information">
+      <div class="col-md-4">
+        <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg" %>
+      </div>
+
+      <div class="col-md-8">
+        <div class="user-name">
+          <h1><%= @user.username %></h1>
+
+
+          <div class="follow">
+            <% if current_user == @user %>
+              <%= link_to "Edit profile", "#", class: "edit-profile" %>
+              <%= link_to icon("cog"), edit_user_registration_path, class: "control-account" %>
+            <% else %>
+              <span class="block-follow">
+                <%= render partial: "follow_form", locals: {user: @user} %>
+              </span>
+              <%= link_to icon("ellipsis-h"), "#", class: "control-account" %>
+            <% end %>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="photos-infor">
+          <span><strong>67</strong> photos</span>
+          <span><strong>91</strong> followers</span>
+          <span><strong>41</strong> followings</span>
+        </div>
+        <div class="sologan">
+          <h3>hello viet nam</h3>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="photo-of-user">
+      <div class="row">
+        <%= render partial: "photos", locals: {photos: @user.photos.includes(:likes, :comments)} %>
+      </div>
+    </div>
+  </div>
 </div>
+

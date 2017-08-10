@@ -52,4 +52,20 @@ class User < ApplicationRecord
   def feeds
     Photo.order(created_at: :desc).where "user_id IN (?) OR user_id = (?)", following_ids, id
   end
+
+  def like photo
+    unless liked? photo
+      liked_photos << photo
+    end
+  end
+
+  def unlike photo
+    if liked? photo
+      liked_photos.delete photo
+    end
+  end
+
+  def liked? photo
+    liked_photos.include? photo
+  end
 end

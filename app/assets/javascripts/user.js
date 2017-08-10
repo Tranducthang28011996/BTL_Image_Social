@@ -11,7 +11,7 @@ $(document).ready(function(){
       dataType: 'JSON'
     })
     .done(function(data) {
-      $('.follow').html(data.form_follow)
+      $('.block-follow').html(data.form_follow)
     })
 
     return false;

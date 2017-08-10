@@ -19,12 +19,45 @@ $(document).ready(function(){
         $(textarea).val().replace("\n", "");
       }
     })
+    return false;
   });
 
   $('body').on('keypress', '.form-add-comment', function(event){
     var keyCode = (event.keyCode ? event.keyCode : event.which);
     if (keyCode == 13) {
-      $('.btn-send-comment').trigger('click');
+      $(this).closest('form').children('.btn-send-comment').trigger('click');
     }
   });
+
+
+  $('body').on('click', '.button-like-comment', function(e){
+    e.preventDefault();
+    var photo_id = $(this).closest('.like-comment').data('photo');
+    var block_count_like = $(this).closest('.like-comment').children('.count-like');
+    var block_like = $(this);
+    var url = '/like/' + photo_id;
+    var method = $(this).attr('method');
+
+    if (method == "delete") {
+      url = '/unlike/' + photo_id;
+    }
+
+    $.ajax({
+      url: url,
+      method: method,
+      dataType: 'JSON'
+    })
+    .done(function(data) {
+      if (block_like.hasClass('liked')) {
+        block_like.removeClass('liked').addClass('not-like');
+        block_like.attr('method', 'post');
+      }else {
+        block_like.removeClass('not-like').addClass('liked');
+        block_like.attr('method', 'delete');
+      }
+
+      block_count_like.html('<strong>' + data.count_like + ' likes</strong>')
+    })
+  });
+
 });

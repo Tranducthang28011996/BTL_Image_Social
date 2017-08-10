@@ -1,0 +1,15 @@
+<% photos.each do |photo| %>
+  <div class="col-md-4 frame-photo">
+    <div class="photo">
+      <%= image_tag photo.image %>
+      <div class="show-like-comment-photo">
+        <span>
+          <%= photo.likes.size %> <%= icon "heart" %>
+        </span>
+        <span>
+          <%= photo.comments.size %> <%= icon "comments" %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>
