@@ -16,10 +16,17 @@ class PhotosController < ApplicationController
     end
   end
 
+  def update
+    @photo = Photo.find params[:id]
+    return render json: {status: 1} if @photo.update_attributes photo_params
+    render json: {status: 0}
+  end
+
   private
 
   def photo_params
-    params.require(:photo).permit :image, comments_attributes: [:content, :user_id]
+    params.require(:photo).permit :image, :status,
+      comments_attributes: [:content, :user_id]
   end
 
   def load_feeds

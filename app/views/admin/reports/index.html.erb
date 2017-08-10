@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Photo Manager</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Photos
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-hover" id="photo-index">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>User name</th>
+                <th>Created at</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @reports.each do |report| %>
+              <tr>
+                <td><%= report.id %></td>
+                <td><a href="<%= admin_photo_path report.photo %>"><img src="<%= report.photo.image %>" alt="" class="img-thumbnail"
+                    style="width: 250px;max-height: 300px;"></a></td>
+                <td><%= report.user.username %></td>
+                <td><time class="timeago" datetime="<%= report.created_at.strftime("%FT%T%z") %>"><%= report.created_at.strftime("%FT%T%z") %></time></td>
+                <td>
+                  <% if report.done == 1 %>
+                    <i class="fa fa-check"></i>
+                  <% else %>
+                    <button report-id="<%= report.id %>" class="btn btn-success btn-done-report">Done</button>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+</div>
