@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803155528) do
+ActiveRecord::Schema.define(version: 20170818151101) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -49,10 +49,22 @@ ActiveRecord::Schema.define(version: 20170803155528) do
 
   create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
+    t.integer "status", default: 1
+    t.integer "deleted", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_photos_on_user_id"
+  end
+
+  create_table "reports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "photo_id"
+    t.bigint "user_id"
+    t.integer "done", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_id"], name: "index_reports_on_photo_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -79,4 +91,6 @@ ActiveRecord::Schema.define(version: 20170803155528) do
   add_foreign_key "likes", "photos"
   add_foreign_key "likes", "users"
   add_foreign_key "photos", "users"
+  add_foreign_key "reports", "photos"
+  add_foreign_key "reports", "users"
 end
