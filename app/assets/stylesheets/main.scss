@@ -1,5 +1,5 @@
 @import 'variables/color';
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 body {
   background: $bg-page;
 }
@@ -66,6 +66,7 @@ body {
       background-image: url('icon.png');
       border: 0;
       margin-right: 20px;
+      float: left;
     }
 
     .notify-compass {
@@ -178,22 +179,22 @@ body {
     background-position: -312px -289px;
   }
 }
-@media screen and (min-width: 769px) {
+@media (max-width: 768px) {
+  .navbar-header {
+    margin-left: 40px;
+  }
+
+  .navigator-user .nav {
+    margin-left: 110px;
+  }
+}
+
+@media (min-width: 769px) {
   .navbar-header {
     margin-left: 100px;
   }
 
   .navigator-user .nav {
     margin-left: 160px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .navbar-header {
-    margin-left: 32px;
-  }
-
-  .navigator-user .nav {
-    margin-left: 108px;
   }
 }

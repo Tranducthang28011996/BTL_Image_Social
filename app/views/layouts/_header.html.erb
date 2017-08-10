@@ -19,7 +19,7 @@
             <% else %>
               <button class="notify-compass"></button>
               <button class="notify-like"></button>
-              <button class="notify-user"></button>
+              <%= link_to "", user_path(current_user), class:"notify-user"  %>
             <% end %>
           </div>
         </div>

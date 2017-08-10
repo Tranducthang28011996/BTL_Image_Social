@@ -7,21 +7,22 @@
     <%= image_tag photo.image, class: "post-main-img" %>
   </div>
   <div class="post-control">
-    <div class="like-comment">
-      <%= button_tag "", class: "button-like-comment liked" %>
-      <%#= button_tag "", class: "button-like not-like" %>
+    <div class="like-comment" data-photo="<%= photo.id %>">
+      <% if current_user.liked? photo %>
+        <%= button_tag "", class: "button-like-comment liked", method: :delete %>
+      <% else %>
+        <%= button_tag "", class: "button-like-comment not-like", method: :post %>
+      <% end %>
 
       <%= button_tag "", class: "button-like-comment comment" %>
       <div class="count-like">
-        <strong>100 likes</strong>
+        <strong><%= photo.likes.count %> likes</strong>
       </div>
-
+      <div class="load-post">
+        <%#= button_tag "view more 10 comments" %>
+      </div>
       <div class="post-comments">
         <%= render photo.comments %>
-      </div>
-
-      <div class="load-post">
-        <%= button_tag "view more 10 comments" %>
       </div>
       <hr>
       <%= form_for [photo, photo.comments.build] do |f| %>
