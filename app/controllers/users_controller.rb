@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_exists_user?
-  before_action :params_password, only: :update
+  # before_action :check_exists_user?
+  # before_action :params_password, only: :update
+  before_action :check_exists_user?, except: :index
+  # before_filter :search
+  def index
+
+  end
 
   def show
 
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
     else
       @user.update_attributes params_user
     end
-    redirect_to profile_path(@user)
+    redirect_to profile_path(current_user)
   end
 
   def edit_profile

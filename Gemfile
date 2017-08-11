@@ -37,3 +37,7 @@ group :development do
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "ransack", github: "activerecord-hackery/ransack"
+gem "bootstrap-kaminari-views"
+gem "kaminari"
+gem 'jquery-ui-rails'
