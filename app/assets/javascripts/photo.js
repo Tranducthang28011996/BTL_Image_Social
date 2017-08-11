@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('body').on('click', '.btn-send-comment', function(e){
     e.preventDefault();
     var url = $(this).closest('.new_comment').attr('action');

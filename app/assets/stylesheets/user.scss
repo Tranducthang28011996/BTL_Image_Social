@@ -114,11 +114,6 @@
 .user-information {
   margin-top: 50px;
 
-  img {
-    border-radius: 50%;
-    width: 155px;
-  }
-
   .user-name {
     h1 {
       float: left;
@@ -150,8 +145,22 @@
       display: block;
       float: left;
       font-size: 20px;
-      margin-top: 22px;
-      padding: 5px;
+      margin-top: 27px;
+
+      i:hover .menu-setting {
+        display: block;
+      }
+    }
+
+    .menu-setting {
+      position: absolute;
+      height: auto;
+      top: 59px;
+      left: 297px;
+      width: 100px;
+      text-align: center;
+      border: 1px solid;
+      display: none;
     }
   }
 
@@ -199,6 +208,52 @@
       top: 0;
       width: 100%;
       z-index: 100;
+    }
+  }
+}
+.user-information {
+  .avatar-user {
+    position: relative;
+    width: 155px;
+
+    &:hover .show-icon-change-image{
+      display: block;
+      cursor: pointer;
+    }
+
+    img {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+    }
+
+    .show-icon-change-image {
+      background: rgba(51, 51, 51, 0.39);
+      border: 0;
+      border-radius: 50%;
+      color: white;
+      display: none;
+      font-size: 35px;
+      height: 100%;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+}
+
+.question-select-change-avatar {
+  ul {
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+
+    li {
+      line-height: 50px;
+      width: 100%;
     }
   }
 }

@@ -3,18 +3,33 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="row user-information">
       <div class="col-md-4">
-        <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg" %>
+        <div class="avatar-user">
+          <% if @user.avatar %>
+            <%= image_tag @user.avatar %>
+          <% else %>
+            <%= image_tag "http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-knives-ninja.png" %>
+          <% end %>
+          <% if current_user == @user %>
+            <button type="button" class="show-icon-change-image" data-toggle="modal"
+              data-target="#myModal"  data-link="<%= edit_user_path(current_user) %>">
+              <%= icon "camera" %>
+            </button>
+          <% end %>
+        </div>
       </div>
 
       <div class="col-md-8">
         <div class="user-name">
           <h1><%= @user.username %></h1>
-
-
           <div class="follow">
             <% if current_user == @user %>
               <%= link_to "Edit profile", "#", class: "edit-profile" %>
-              <%= link_to icon("cog"), edit_user_registration_path, class: "control-account" %>
+              <%= link_to edit_user_registration_path, class: "control-account" do %>
+                <%= icon "cog" %>
+                <div class="menu-setting">
+                  <%= link_to "Log out", destroy_user_session_path  %>
+                </div>
+              <% end %>
             <% else %>
               <span class="block-follow">
                 <%= render partial: "follow_form", locals: {user: @user} %>
@@ -26,12 +41,12 @@
           <div class="clearfix"></div>
         </div>
         <div class="photos-infor">
-          <span><strong>67</strong> photos</span>
-          <span><strong>91</strong> followers</span>
-          <span><strong>41</strong> followings</span>
+          <span><strong><%= @user.photos.size %></strong> photos</span>
+          <span><strong><%= @user.followers.size %></strong> followers</span>
+          <span><strong><%= @user.followings.size %></strong> followings</span>
         </div>
         <div class="sologan">
-          <h3>hello viet nam</h3>
+          <h3><%= @user.email %></h3>
         </div>
       </div>
     </div>

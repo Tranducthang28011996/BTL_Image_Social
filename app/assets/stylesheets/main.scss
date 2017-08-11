@@ -92,6 +92,7 @@ body {
 .post {
   margin-bottom: 30px;
 }
+
 .post-header {
   padding: 10px;
 
@@ -179,6 +180,17 @@ body {
     background-position: -312px -289px;
   }
 }
+
+.modal-content {
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.btn-app {
+  border: 1px solid #2f2f2e;
+  border-radius: 0;
+}
+
 @media (max-width: 768px) {
   .navbar-header {
     margin-left: 40px;

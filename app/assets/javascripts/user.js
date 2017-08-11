@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('body').on('click', '.btn-follow', function(e){
     e.preventDefault();
 
@@ -14,6 +14,21 @@ $(document).ready(function(){
       $('.block-follow').html(data.form_follow)
     })
 
+    return false;
+  });
+
+  $('body').on('click', '.show-icon-change-image', function(e){
+    e.preventDefault();
+    var url = $(this).data('link');
+    $.ajax({
+      url: url,
+      type: 'GET',
+      dataType: 'JSON',
+    })
+    .done(function(data) {
+      $('.modal-content').html(data.form_edit_avatar);
+      $('#myModal').modal();
+    })
     return false;
   });
 });
