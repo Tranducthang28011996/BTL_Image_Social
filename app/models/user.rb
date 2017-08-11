@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :followings, through: :active_follows, source: :followed
   has_many :followers, through: :passive_follows
 
+  mount_uploader :avatar, PhotosUploader
+
   class << self
     def find_for_database_authentication warden_conditions
       conditions = warden_conditions.dup

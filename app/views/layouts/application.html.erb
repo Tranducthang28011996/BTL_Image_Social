@@ -16,6 +16,12 @@
     <div class="container">
       <%= yield %>
     </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
     <% unless Settings.controller.devise.include? controller.controller_name %>
       <%= render "layouts/footer" %>
     <% end %>
