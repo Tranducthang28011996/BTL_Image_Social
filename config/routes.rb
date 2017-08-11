@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   }
 
   get "/notification", to: "notifications#get_notification"
+
 end

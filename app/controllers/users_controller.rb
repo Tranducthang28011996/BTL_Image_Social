@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_exists_user?
+  before_action :check_exists_user?, except: :index
 
+  def index
+
+  end
   def show
 
   end

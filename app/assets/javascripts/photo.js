@@ -56,5 +56,4 @@ $(document).on('turbolinks:load', function(){
       block_count_like.html('<strong>' + data.count_like + ' likes</strong>')
     })
   });
-
 });

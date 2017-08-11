@@ -9,10 +9,12 @@
           <% end %>
           </div>
         </div>
-        <div class="col-md-4 col-xs-4 search-form">
-          <input type="text" name="" placeholder="search">
-          <span><%= icon "search" %></span>
-        </div>
+        <%= search_form_for @q do |f| %>
+          <div class="col-md-4 col-xs-4 search-form">
+            <%= f.search_field :username_or_email_cont , placeholder: "search" %>
+            <span><%= icon "search" %></span>
+          </div>
+        <% end %>
         <div class="col-md-4 col-xs-4 navigator-user">
           <div class="nav navbar-nav" >
             <% unless user_signed_in? %>
