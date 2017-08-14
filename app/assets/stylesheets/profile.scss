@@ -1,0 +1,47 @@
+.tab-profile {
+  border: 1px solid gray;
+  border-right: none;
+  height: 314px;
+  ul {
+    li {
+      list-style-type: none;
+      height: 43px;
+      width: 228px;
+      margin-left: -34.2%;
+      line-height: 43px;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 19px;
+      color: black;
+      margin-left: 7%;
+    }
+
+    li:hover {
+      background-color: #FAFAFA;
+    }
+
+    a:hover {
+      font-weight: bold;
+    }
+  }
+}
+.edit-profile {
+  border: 1px solid gray;
+  form {
+    margin-top: 22%;
+    margin-left: 18%;
+  }
+  input {
+    margin-bottom: 7%;
+  }
+
+  tr {
+    margin-right: 5%;
+  }
+
+  td {
+    font-weight:bold;
+  }
+}

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
   resources :reports
 
+  get "profile/:id", to: "users#edit_profile", as: "profile"
   post "follow/:id", to: "follows#create", as: "follow"
   delete "unfollow/:id", to: "follows#destroy", as: "unfollow"
 
