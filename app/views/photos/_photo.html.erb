@@ -21,7 +21,7 @@
       <div class="load-post">
         <%#= button_tag "view more 10 comments" %>
       </div>
-      <div class="post-comments">
+      <div class="post-comments" id="comment-photo-<%= photo.id %>">
         <%= render photo.comments %>
       </div>
       <hr>

@@ -1,0 +1,70 @@
+@import 'variables/color';
+
+.notification-block {
+  background: $bg-white;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  display: none;
+  height: 300px;
+  left: -27px;
+  position: absolute;
+  top: 61px;
+  width: 400px;
+
+  ul {
+    list-style-type: none;
+    padding: 5px;
+
+    .notify-block {
+      padding: 5px;
+
+      .notify-sender img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .notify-content {
+        border-bottom: 1px solid #e8e8e8;
+        font-size: 12px;
+        height: 43px;
+        padding: 0 4px;
+      }
+
+      .notify-owner {
+        margin-top: 6px;
+        padding: 0;
+        margin-right: 10px;
+
+        button {
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          font-weight: bold;
+          padding: 3px 6px;
+          margin-right: -18px;
+        }
+
+        .btn-following {
+          background: #3aa9ea;
+          color: $bg-white;
+        }
+
+        .btn-follow {
+          background: $bg-white;
+          color: #333;
+        }
+
+        .image-owner {
+          width: 36px;
+          margin-top: -6px;
+          margin-right: -17px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .notification-block {
+    left: -100px !important;
+  }
+}

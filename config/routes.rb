@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     sign_in: "login",
     sign_out: "logout"
   }
+
+  get "/notification", to: "notifications#get_notification"
 end
