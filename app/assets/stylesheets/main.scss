@@ -34,19 +34,20 @@ body {
       outline: none;
       padding: 4px;
       text-align: center;
-      width: 60%;
+      width: 260px;
     }
 
     span {
       color: $color-span-search-form;
       position: absolute;
-      right: 93px;
-      top: 6px;
+      right: -48px;
+      top: 5px;
     }
   }
 
   .navigator-user {
     padding: 22px 0;
+    float: right;
 
     a {
       font-size: 17px;
@@ -87,6 +88,10 @@ body {
       width: 24px;
     }
   }
+}
+
+.page-content {
+  margin-top: 100px;
 }
 
 .post {
@@ -192,12 +197,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .navbar-header {
-    margin-left: 40px;
-  }
-
   .navigator-user .nav {
-    margin-left: 110px;
+    margin-left: 85px;
+    margin-top: 0;
   }
 }
 
@@ -207,6 +209,12 @@ body {
   }
 
   .navigator-user .nav {
-    margin-left: 160px;
+    margin-left: 120px;
+    margin-top: 0;
+  }
+
+  .header-page .search-form span {
+    right: 69px;
+    top: 5px;
   }
 }

@@ -13,11 +13,8 @@ $(document).on('turbolinks:load', function(){
       data: {comment: {content: content_comment}}
     })
     .done(function(data) {
-      if (data.status == true) {
-        $(data.comment).appendTo(block_comment).hide().fadeIn(1000);
-        $(textarea).val('');
-        $(textarea).val().replace("\n", "");
-      }
+      $(textarea).val('');
+      $(textarea).val().replace("\n", "");
     })
     return false;
   });

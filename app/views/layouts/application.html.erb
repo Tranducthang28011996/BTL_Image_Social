@@ -13,7 +13,7 @@
     <% unless Settings.controller.devise.include? controller.controller_name %>
       <%= render "layouts/header" %>
     <% end %>
-    <div class="container">
+    <div class="container page-content">
       <%= yield %>
     </div>
     <div id="myModal" class="modal fade" role="dialog">
