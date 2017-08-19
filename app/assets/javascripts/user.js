@@ -1,17 +1,4 @@
 $(document).on('turbolinks:load', function(){
-  $.ajax({
-    url: '/notification',
-    method: 'GET',
-    dateType: 'JSON',
-    success: function(data){
-
-    }
-  });
-
-  $('.notify-like').click(function(){
-    $('.notification-block').toggle();
-  });
-
   $('body').on('click', '.btn-follow', function(e){
     e.preventDefault();
 
@@ -45,14 +32,3 @@ $(document).on('turbolinks:load', function(){
     return false;
   });
 });
-
-// $(document).click(function(e){
-//   if ($(e.target).is('.notification-block')) {
-//   }else
-//   if ($(e.target).is('.notify-block')) {
-//   }else
-//   if ($(e.target).is('.notify-like')) {
-//   }else {
-//     $('.notification-block').hide();
-//   }
-// });

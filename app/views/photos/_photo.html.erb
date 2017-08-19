@@ -2,7 +2,7 @@
   <div class="post photo-item" id="photo-id-<%= photo.id %>"
     photo-id="<%= photo.id %>" user-id="<%= current_user.id %>">
     <div class="post-header">
-      <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
+      <%= image_tag photo.user.avatar, class: "post-avatar" %>
       <span><%= link_to photo.user.username, user_path(photo.user)  %></span>
       <div class="dropdown pull-right">
         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
