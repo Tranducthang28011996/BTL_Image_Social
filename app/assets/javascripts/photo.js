@@ -57,4 +57,21 @@ $(document).on('turbolinks:load', function(){
     })
   });
 
+  $(window).scroll(function (event) {
+      if ($(window).scrollTop() == $(document).height() - $(window).height()){
+        var page = Math.floor($(window).scrollTop()/3800 + 1);
+
+        if (page > 1) {
+          $.ajax({
+            url: '/photos',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {page: page},
+          })
+          .done(function(data) {
+            $('.photo-posts').append(data.posts);
+          })
+        }
+      }
+  });
 });

@@ -1,7 +1,6 @@
 .block-loading {
   position: absolute;
   top: 1px;
-  /* left: 152px; */
   background: white;
   z-index: 6;
   width: 100%;
@@ -12,7 +11,6 @@
   $yellow: #ffa700;
   $white: #eee;
 
-  // scaling... any units
   $width: 100px;
 
   body {

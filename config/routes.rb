@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :reports
 
   get "profile/:id", to: "users#edit_profile", as: "profile"
+  get "edit_information", to: "users#edit_infor"
   post "follow/:id", to: "follows#create", as: "follow"
   delete "unfollow/:id", to: "follows#destroy", as: "unfollow"
 
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   }
 
   get "/notification", to: "notifications#get_notification"
+
   namespace :admin do
     get "/", to: "home#index"
     resources :users

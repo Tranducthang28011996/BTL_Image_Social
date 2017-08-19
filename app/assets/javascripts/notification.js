@@ -2,7 +2,7 @@ $(function(){
   $('body').on('click', '.notify-like', function(){
     $('.block-content-notification').hide();
     $('.block-loading').show();
-    $('.notification-block').toggle();
+    // $('.notification-block').toggle();
 
       $.ajax({
         url: '/notification',

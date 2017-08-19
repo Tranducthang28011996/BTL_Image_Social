@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     }
   end
 
+  def edit_infor
+
+  end
+
   def update
     if params_password[:password].nil? == false
       if  current_user.valid_password? params_password[:password_old]

@@ -24,12 +24,22 @@
           <div class="follow">
             <% if current_user == @user %>
               <%= link_to "Edit profile", profile_path(@user), class: "edit-profile" %>
-              <%= link_to edit_user_registration_path, class: "control-account" do %>
+              <button type="button" data-toggle="modal" data-target="#myModaledit" class="config-user">
                 <%= icon "cog" %>
-                <div class="menu-setting">
-                  <%= link_to "Log out", destroy_user_session_path  %>
+              </button>
+              <div id="myModaledit" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <ul class="menu-show-config-user">
+                      <li><a href=""><%= link_to "Change Password", edit_user_registration_path %></a></li>
+                      <li><a href="">Notifications</a></li>
+                      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+                      <li><a href="">Cancel</a></li>
+                    </ul>
+                  </div>
                 </div>
-              <% end %>
+              </div>
+
             <% else %>
               <span class="block-follow">
                 <%= render partial: "follow_form", locals: {user: @user} %>
