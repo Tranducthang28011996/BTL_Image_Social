@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user_comments = user.comments.paginate(:page => params[:comment_page], per_page: 10)
-    @user_photos = user.photos.paginate(:page => params[:photo_page], per_page: 6)
+    @user_photos = user.photos.page(params[:photo_page]).per(6)
     render layout: "admin/application"
   end
 

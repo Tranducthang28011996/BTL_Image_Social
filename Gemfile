@@ -20,12 +20,13 @@ gem "carrierwave", "~> 1.0"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "font-awesome-sass", "~> 4.7.0"
 gem "config"
-gem 'will_paginate', '~> 3.1.0'
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "faker"
 end
 
 group :development do

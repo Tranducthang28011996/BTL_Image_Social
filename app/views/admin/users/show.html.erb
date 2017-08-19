@@ -55,7 +55,7 @@
               style="width: 100%; height: 280px" class="img-thumbnail">
           </div>
         <% end %>
-        <%= will_paginate @user_photos, param_name: "photo_page" %>
+        <%= paginate @user_photos, param_name: "photo_page" %>
       </div>
     </div>
   </div>

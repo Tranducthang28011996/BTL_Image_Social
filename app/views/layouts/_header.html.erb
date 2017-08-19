@@ -20,20 +20,22 @@
               <%= link_to "Login", new_user_session_path %>
             <% else %>
               <button class="notify-compass"></button>
-              <button class="notify-like"></button>
-              <div class="notification-block">
-                <ul class="block-content-notification">
-                </ul>
-                <div class="block-loading">
-                  <div class="showbox">
-                    <div class="loader">
-                      <svg class="circular" viewBox="25 25 50 50">
-                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
-                      </svg>
+              <span>
+                <button class="notify-like" class="dropdown-toggle" data-toggle="dropdown"></button>
+                <div class="notification-block dropdown-menu">
+                  <ul class="block-content-notification">
+                  </ul>
+                  <div class="block-loading">
+                    <div class="showbox">
+                      <div class="loader">
+                        <svg class="circular" viewBox="25 25 50 50">
+                          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </span>
               <%= link_to "", user_path(current_user), class:"notify-user"  %>
             <% end %>
           </div>

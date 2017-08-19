@@ -4,7 +4,13 @@ class PhotosController < ApplicationController
   def index
     @new_photos = current_user.photos.build
     @new_comment = @new_photos.comments.build
-    @photos = load_feeds
+    page = params[:page] || 1
+    @photos = load_feeds.page(page).per(5)
+    if request.xhr?
+      render json: {
+        posts: render_to_string(@photos)
+      }
+    end
   end
 
   def new
