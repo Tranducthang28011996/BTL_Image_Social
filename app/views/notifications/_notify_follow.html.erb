@@ -1,0 +1,15 @@
+<li class="notify-block">
+  <div class="row">
+    <div class="col-md-2 notify-sender">
+      <%= image_tag notify.sender.avatar %>
+    </div>
+    <div class="col-md-7 notify-content">
+      <strong><%= notify.sender.username %></strong> started following you
+    </div>
+    <div class="col-md-2 notify-owner">
+      <button class="btn-follow pull-right">
+        <%= render partial: "users/follow_form", locals: {user: notify.sender} %>
+      </button>
+    </div>
+  </div>
+</li>

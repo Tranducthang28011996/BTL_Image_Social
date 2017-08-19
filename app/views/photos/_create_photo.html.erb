@@ -1,10 +1,9 @@
 <div class="post">
   <div class="post-header">
-    <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
+    <%= image_tag current_user.avatar, class: "post-avatar" %>
     <span><%= link_to current_user.username, user_path(current_user) %></span>
   </div>
   <div class="post-content text-center">
-    <%#= icon "plus-circle" %>
     <%= form_for @new_photos, multipart: true do |f| %>
       <%= f.file_field :image %>
       <%= f.fields_for :comments do |comment|  %>
