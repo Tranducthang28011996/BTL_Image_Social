@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Edit user</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+
+<div class="rows">
+  <div class="col-md-12">
+    <%= form_for @user, url:admin_user_path(@user), html: {class: "form-horizontal"}, method: :put  do |f| %>
+      <div class="form-group">
+        <label>Username: </label>
+        <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="form-group">
+        <label>Email: </label>
+        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="form-group">
+        <label>Sign in count: </label>
+        <%= f.text_field :sign_in_count, placeholder: "sign_in_count", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="form-group">
+        <label>Last sign in at: </label>
+        <%= f.text_field :last_sign_in_at, placeholder: "last_sign_in_at", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="form-group">
+        <label>Last sign in ip: </label>
+        <%= f.text_field :last_sign_in_ip, placeholder: "last_sign_in_ip", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+      <div class="form-group">
+        <label>Created at: </label>
+        <%= f.text_field :created_at, placeholder: "created_at", class: "form-control" %>
+        <p class="help-block">Example block-level help text here.</p>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit "Update", class: "btn btn-outline btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :reports
 
   post "follow/:id", to: "follows#create", as: "follow"
   delete "unfollow/:id", to: "follows#destroy", as: "unfollow"
@@ -20,4 +21,10 @@ Rails.application.routes.draw do
   }
 
   get "/notification", to: "notifications#get_notification"
+  namespace :admin do
+    get "/", to: "home#index"
+    resources :users
+    resources :photos
+    resources :reports
+  end
 end

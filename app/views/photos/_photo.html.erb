@@ -1,35 +1,54 @@
-<div class="post" id="photo-id-<%= photo.id %>">
-  <div class="post-header">
-    <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
-    <span><%= link_to photo.user.username, user_path(photo.user)  %></span>
-  </div>
-  <div class="post-content">
-    <%= image_tag photo.image, class: "post-main-img" %>
-  </div>
-  <div class="post-control">
-    <div class="like-comment" data-photo="<%= photo.id %>">
-      <% if current_user.liked? photo %>
-        <%= button_tag "", class: "button-like-comment liked", method: :delete %>
-      <% else %>
-        <%= button_tag "", class: "button-like-comment not-like", method: :post %>
-      <% end %>
+<% if (photo.status == 1 || photo.user == current_user) && photo.deleted == 0 %>
+  <div class="post photo-item" id="photo-id-<%= photo.id %>"
+    photo-id="<%= photo.id %>" user-id="<%= current_user.id %>">
+    <div class="post-header">
+      <%= image_tag "3a9bdd452ff107dd46c8f13be9596dd6.jpg", class: "post-avatar" %>
+      <span><%= link_to photo.user.username, user_path(photo.user)  %></span>
+      <div class="dropdown pull-right">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+          <% if photo.status == 1 %>
+            Public
+          <% else %>
+            Private
+          <% end %>
+        </button>
+        <ul class="dropdown-menu">
+          <% if current_user == photo.user %>
+            <li><a class="btn-public" href="#">Public</a></li>
+            <li><a class="btn-private" href="#">Private</a></li>
+          <% end %>
+          <li><a class="btn-report" href="#">Report</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="post-content">
+      <%= image_tag photo.image, class: "post-main-img" %>
+    </div>
+    <div class="post-control">
+      <div class="like-comment" data-photo="<%= photo.id %>">
+        <% if current_user.liked? photo %>
+          <%= button_tag "", class: "button-like-comment liked", method: :delete %>
+        <% else %>
+          <%= button_tag "", class: "button-like-comment not-like", method: :post %>
+        <% end %>
 
-      <%= button_tag "", class: "button-like-comment comment" %>
-      <div class="count-like">
-        <strong><%= photo.likes.count %> likes</strong>
+        <%= button_tag "", class: "button-like-comment comment" %>
+        <div class="count-like">
+          <strong><%= photo.likes.count %> likes</strong>
+        </div>
+        <div class="load-post">
+          <%#= button_tag "view more 10 comments" %>
+        </div>
+        <div class="post-comments" id="comment-photo-<%= photo.id %>">
+          <%= render photo.comments %>
+        </div>
+        <hr>
+        <%= form_for [photo, photo.comments.build] do |f| %>
+          <%= f.text_area :content, rows: 2, cols: 60, class:"form-add-comment",
+            placeholder: "Add a comment..." %>
+          <%= f.submit "send", class: "btn-send btn-send-comment" %>
+        <% end %>
       </div>
-      <div class="load-post">
-        <%#= button_tag "view more 10 comments" %>
-      </div>
-      <div class="post-comments" id="comment-photo-<%= photo.id %>">
-        <%= render photo.comments %>
-      </div>
-      <hr>
-      <%= form_for [photo, photo.comments.build] do |f| %>
-        <%= f.text_area :content, rows: 2, cols: 60, class:"form-add-comment",
-          placeholder: "Add a comment..." %>
-        <%= f.submit "send", class: "btn-send btn-send-comment" %>
-      <% end %>
     </div>
   </div>
-</div>
+<% end %>
