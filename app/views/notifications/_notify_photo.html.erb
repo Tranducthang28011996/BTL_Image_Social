@@ -1,0 +1,17 @@
+<li class="notify-block">
+  <div class="row">
+    <div class="col-md-2 notify-sender">
+      <%= image_tag notify.sender.avatar %>
+    </div>
+    <div class="col-md-8 notify-content">
+      <% comment = Comment.find_by id: notify.entity_id %>
+      <strong><%= notify.sender.username %></strong> mentioned you in a comment:
+      "<%= comment.content.truncate(40) %>"
+    </div>
+    <div class="col-md-2 notify-owner">
+      <% if comment %>
+        <%= image_tag comment.photo.image, class:"image-owner"  %>
+      <% end %>
+    </div>
+  </div>
+</li>

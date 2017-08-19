@@ -24,37 +24,17 @@
               <button class="notify-compass"></button>
               <button class="notify-like"></button>
               <div class="notification-block">
-                <ul>
-                  <li class="notify-block">
-                    <div class="row">
-                      <div class="col-md-2 notify-sender">
-                        <img src="http://livitrans.com/upload/images/news/avatar.png">
-                      </div>
-                      <div class="col-md-7 notify-content">Lorem Ipsum is simply dummy text</div>
-                      <div class="col-md-2 notify-owner"><button class="btn-follow pull-right">Following</button></div>
-                    </div>
-                  </li>
-                  <li class="notify-block">
-                    <div class="row">
-                      <div class="col-md-2 notify-sender">
-                        <img src="http://livitrans.com/upload/images/news/avatar.png">
-                      </div>
-                      <div class="col-md-7 notify-content">Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text</div>
-                      <div class="col-md-2 notify-owner"><button class="btn-following pull-right">Follow</button></div>
-                    </div>
-                  </li>
-                  <li class="notify-block">
-                    <div class="row">
-                      <div class="col-md-2 notify-sender">
-                        <img src="http://livitrans.com/upload/images/news/avatar.png">
-                      </div>
-                      <div class="col-md-7 notify-content">Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text</div>
-                      <div class="col-md-2 notify-owner">
-                        <img class="image-owner pull-right" src="https://s3.amazonaws.com/codelation.blog/2015/Jun/avatar_square-1433445115655.png">
-                      </div>
-                    </div>
-                  </li>
+                <ul class="block-content-notification">
                 </ul>
+                <div class="block-loading">
+                  <div class="showbox">
+                    <div class="loader">
+                      <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
               <%= link_to "", user_path(current_user), class:"notify-user"  %>
             <% end %>
