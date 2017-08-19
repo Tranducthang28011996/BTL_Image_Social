@@ -1,0 +1,61 @@
+<div class="col-md-10 col-md-offset-1">
+  <div class="col-md-3 tab-profile">
+    <ul>
+      <li class="active"><a data-toggle="tab" href="#tab1">Edit Profile</a></li>
+      <li><a data-toggle="tab" href="#tab2">Change Password</a></li>
+    </ul>
+  </div>
+  <div class="col-md-9 edit-profile">
+  <div class="tab-content">
+  <div id="tab1" class="tab-pane fade in active">
+    <%= form_for @user do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td>Name &nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <%= f.text_field :username, class: "form-control" %>
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>
+              <%= f.text_field :email, class: "form-control" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <%= f.submit "Update", class: "btn btn-btn-sucess"%>
+  <% end %>
+</div>
+<div id="tab2" class="tab-pane fade">
+  <%= form_for @user do |f| %>
+    <table>
+      <tbody>
+        <tr>
+          <td>Password Old &nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <%= f.password_field :password_old, class: "form-control" %>
+          </td>
+        </tr>
+        <tr>
+          <td>New password</td>
+          <td>
+            <%= f.password_field :password, class: "form-control" %>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Password Comfirmation</td>
+          <td>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit "Password", class: "btn btn-btn-sucess"%>
+  <% end %>
+  </div>
+  </div>
+  </div>
+</div>
