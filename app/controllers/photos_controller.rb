@@ -22,6 +22,11 @@ class PhotosController < ApplicationController
     render json: {status: 0}
   end
 
+  def destroy
+    @photo = Photo.find params[:imageID]
+    @photo.destroy
+  end
+
   private
 
   def photo_params
