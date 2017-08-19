@@ -1,6 +1,6 @@
 <% photos.each do |photo| %>
   <div class="col-md-4 col-xs-4 frame-photo">
-    <div class="photo">
+    <div class="photo fade-out-image-<%= photo.id %>">
       <%= image_tag photo.image %>
       <div class="show-like-comment-photo">
         <span>
@@ -8,6 +8,11 @@
         </span>
         <span>
           <%= photo.comments.size %> <%= icon "comments" %>
+        </span>
+        <span>
+          <div class= "delete-image" data-image="<%= photo.id %>">
+            <%= icon "window-close" %>
+          </div>
         </span>
       </div>
     </div>
