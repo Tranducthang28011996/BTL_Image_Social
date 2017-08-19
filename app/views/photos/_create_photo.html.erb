@@ -1,8 +1,8 @@
 <div class="post">
-  <div class="post-header">
+  <div class="post-header post-header-margin">
     <%= image_tag current_user.avatar, class: "post-avatar" %>
     <span><%= link_to current_user.username, user_path(current_user) %></span>
-  <div class="post-content text-center">
+  <div class="">
       <%= form_for @new_photos, multipart: true do |f| %>
         <div class="col-xs-8">
         <%= f.fields_for :comments do |comment|  %>

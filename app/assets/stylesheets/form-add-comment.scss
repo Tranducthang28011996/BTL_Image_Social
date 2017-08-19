@@ -1,12 +1,14 @@
 .right-div{
   height: 85px;
-  width: 520px;
+  width: 166% !important;
   border-radius: 5px;
   margin-left: -6%;
 }
-
+.post-header-margin {
+  margin-bottom: 24%;
+}
 .image-upload {
-  width: 50px !important;
+  width: 55px !important;
   color: #000 !important;
   height: 35px !important;
   background-color: #ffffff !important;
@@ -18,8 +20,8 @@
 }
 
 .float-right {
-  width: 137px;
-  height: 88px;
+  width: 163px;
+  height: 101px;
 }
 
 .btn-post {
