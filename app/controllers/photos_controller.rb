@@ -16,6 +16,15 @@ class PhotosController < ApplicationController
   def new
   end
 
+  def show
+    @photo = Photo.find_by id: params[:id]
+    if request.xhr?
+      render json: {
+        photo: render_to_string(@photo)
+      }
+    end
+  end
+
   def create
     if current_user.photos.create photo_params
       redirect_to root_url
@@ -23,7 +32,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    @photo = Photo.find params[:id]
+    @photo = Photo.find_by id: params[:id]
     return render json: {status: 1} if @photo.update_attributes photo_params
     render json: {status: 0}
   end

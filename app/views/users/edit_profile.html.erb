@@ -1,61 +1,74 @@
-<div class="col-md-10 col-md-offset-1">
-  <div class="col-md-3 tab-profile">
-    <ul>
-      <li class="active"><a data-toggle="tab" href="#tab1">Edit Profile</a></li>
-      <li><a data-toggle="tab" href="#tab2">Change Password</a></li>
-    </ul>
-  </div>
-  <div class="col-md-9 edit-profile">
-  <div class="tab-content">
-  <div id="tab1" class="tab-pane fade in active">
-    <%= form_for @user do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>Name &nbsp;&nbsp;&nbsp;</td>
-            <td>
-              <%= f.text_field :username, class: "form-control" %>
-            </td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>
-              <%= f.text_field :email, class: "form-control" %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <%= f.submit "Update", class: "btn btn-btn-sucess"%>
-  <% end %>
-</div>
-<div id="tab2" class="tab-pane fade">
-  <%= form_for @user do |f| %>
-    <table>
-      <tbody>
-        <tr>
-          <td>Password Old &nbsp;&nbsp;&nbsp;</td>
-          <td>
-            <%= f.password_field :password_old, class: "form-control" %>
-          </td>
-        </tr>
-        <tr>
-          <td>New password</td>
-          <td>
-            <%= f.password_field :password, class: "form-control" %>
-          </td>
-        </tr>
+<div class="col-md-10 col-md-offset-1 frame-edit-user">
+  <div class="row">
+    <div class="col-md-3 tab-profile">
+      <ul>
+        <li class="active"><a data-toggle="tab" href="#tab1">Edit Profile</a></li>
+        <li><a data-toggle="tab" href="#tab2">Change Password</a></li>
+      </ul>
+    </div>
+    <div class="col-md-9 edit-profile">
+      <div class="tab-content">
+        <div id="tab1" class="tab-pane fade in active">
+          <div class="mini-user">
+            <%= image_tag @user.avatar %>
+            <span><%= @user.username %></span>
+          </div>
 
-        <tr>
-          <td>Password Comfirmation</td>
-          <td>
-            <%= f.password_field :password_confirmation, class: "form-control" %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <%= f.submit "Password", class: "btn btn-btn-sucess"%>
-  <% end %>
-  </div>
-  </div>
+          <%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email">Username:</label>
+              <div class="col-sm-4">
+                <%= f.text_field :username, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email">Email:</label>
+              <div class="col-sm-4">
+                <%= f.text_field :email, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email"></label>
+              <div class="col-sm-4">
+                <%= f.submit "Update", class: "btn btn-primary"%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div id="tab2" class="tab-pane fade">
+          <div class="mini-user">
+            <%= image_tag @user.avatar %>
+            <span><%= @user.username %></span>
+          </div>
+          <%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email">Password Old:</label>
+              <div class="col-sm-4">
+                <%= f.password_field :password_old, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email">New password:</label>
+              <div class="col-sm-4">
+                <%= f.password_field :password, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email">Confirm New Password:</label>
+              <div class="col-sm-4">
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3" for="email"></label>
+              <div class="col-sm-4">
+                <%= f.submit "Update", class: "btn btn-primary"%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

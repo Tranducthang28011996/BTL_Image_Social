@@ -74,4 +74,16 @@ $(document).on('turbolinks:load', function(){
         }
       }
   });
+
+  $('body').on('click', '.frame-photo', function(){
+    var photo_id = $(this).data('photo-id');
+    $.ajax({
+      url: '/photos/' + photo_id,
+      type: 'GET',
+      dataType: 'JSON'
+    })
+    .done(function(data) {
+      $('#myModal .modal-content').html(data.photo);
+    })
+  });
 });

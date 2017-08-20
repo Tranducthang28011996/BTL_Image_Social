@@ -18,17 +18,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    if params_password[:password].nil? == false
+    if params_password[:password].present?
       if  current_user.valid_password? params_password[:password_old]
         @user.update_attributes params_password
         redirect_to  root_url
       else
         flash[:danger] = "Password is not exists?"
-        redirect_to  new_user_session_url
       end
     else
       @user.update_attributes params_user
     end
+    redirect_to profile_path(@user)
   end
 
   def edit_profile

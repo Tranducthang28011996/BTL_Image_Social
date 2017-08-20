@@ -77,6 +77,10 @@
   }
 }
 
+.has-new-notify {
+  background-position: 0 -349px !important;
+}
+
 @media (max-width: 768px) {
   .notification-block {
     left: -100px !important;
