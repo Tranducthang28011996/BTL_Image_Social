@@ -1,7 +1,9 @@
 <li class="notify-block">
   <div class="row">
     <div class="col-md-2 notify-sender">
-      <%= image_tag notify.sender.avatar %>
+      <%= link_to user_path(notify.sender) do %>
+        <%= image_tag notify.sender.avatar %>
+      <% end %>
     </div>
     <div class="col-md-8 notify-content">
       <% like = Like.find_by id: notify.entity_id %>
@@ -10,7 +12,9 @@
     </div>
     <div class="col-md-2 notify-owner">
       <% if like %>
-        <%= image_tag like.photo.image, class:"image-owner"  %>
+        <a class="frame-photo" data-photo-id="<%= like.photo.id %>" data-toggle="modal" data-target="#myModal">
+          <%= image_tag like.photo.image, class:"image-owner"  %>
+        </a>
       <% end %>
     </div>
   </div>

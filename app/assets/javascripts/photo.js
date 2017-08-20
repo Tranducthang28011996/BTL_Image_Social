@@ -57,24 +57,6 @@ $(document).on('turbolinks:load', function(){
     })
   });
 
-  $(window).scroll(function (event) {
-      if ($(window).scrollTop() == $(document).height() - $(window).height()){
-        var page = Math.floor($(window).scrollTop()/3800 + 1);
-
-        if (page > 1) {
-          $.ajax({
-            url: '/photos',
-            type: 'GET',
-            dataType: 'JSON',
-            data: {page: page},
-          })
-          .done(function(data) {
-            $('.photo-posts').append(data.posts);
-          })
-        }
-      }
-  });
-
   $('body').on('click', '.frame-photo', function(){
     var photo_id = $(this).data('photo-id');
     $.ajax({
@@ -85,5 +67,37 @@ $(document).on('turbolinks:load', function(){
     .done(function(data) {
       $('#myModal .modal-content').html(data.photo);
     })
+  });
+});
+
+var is_busy = false;
+var page = 1;
+var stopped = false;
+$(document).on('turbolinks:load', function(){
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() >= $(document).height()) {
+      if (is_busy == true){
+        return false;
+      }
+
+      if (stopped == true){
+        return false;
+      }
+
+      is_busy = true;
+      page++;
+
+      $.ajax({
+        url: '/photos',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {page: page},
+      })
+      .done(function(data) {
+        $('.photo-posts').append(data.posts);
+        is_busy = false;
+      });
+      return false;
+    }
   });
 });

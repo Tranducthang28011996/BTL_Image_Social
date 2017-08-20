@@ -1,7 +1,9 @@
 <li class="notify-block">
   <div class="row">
     <div class="col-md-2 notify-sender">
-      <%= image_tag notify.sender.avatar %>
+      <%= link_to user_path(notify.sender) do %>
+        <%= image_tag notify.sender.avatar %>
+      <% end %>
     </div>
     <div class="col-md-7 notify-content">
       <strong><%= notify.sender.username %></strong> started following you
